@@ -1,10 +1,15 @@
 pipeline{
         agent any
         stages{
-            stage('Run App'){
+            stage('Make Directory'){
                 steps{
-                    sh "sudo docker-compose up -d --build"
+                    sh "mkdir ~/jenkins-turorial-test"
                 }
             }
-        }    
+                stage('Make File'){
+                        steps{
+                           sh "touch ~/jenkins-tutorial-test/file1 ~/jenkins-tutorial-test/file2"
+                        }
+                }
+         }
 }
